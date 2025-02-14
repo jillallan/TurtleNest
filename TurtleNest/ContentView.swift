@@ -10,19 +10,19 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @Query private var transactions: [Transaction]
 
     var body: some View {
         NavigationSplitView {
             List {
-                ForEach(items) { item in
+                ForEach(transactions) { transaction in
                     NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
+                        Text("Item at \(transaction.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
                     } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                        Text(transaction.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
                     }
                 }
-                .onDelete(perform: deleteItems)
+                .onDelete(perform: deleteTransactions)
             }
 #if os(macOS)
             .navigationSplitViewColumnWidth(min: 180, ideal: 200)
@@ -34,27 +34,27 @@ struct ContentView: View {
                 }
 #endif
                 ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    Button(action: addTransaction) {
+                        Label("Add Transaction", systemImage: "plus")
                     }
                 }
             }
         } detail: {
-            Text("Select an item")
+            Text("Select an transaction")
         }
     }
 
-    private func addItem() {
+    private func addTransaction() {
         withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
+            let newTransaction = Transaction(timestamp: Date())
+            modelContext.insert(newTransaction)
         }
     }
 
-    private func deleteItems(offsets: IndexSet) {
+    private func deleteTransactions(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
-                modelContext.delete(items[index])
+                modelContext.delete(transactions[index])
             }
         }
     }
@@ -62,5 +62,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: Transaction.self, inMemory: true)
 }
