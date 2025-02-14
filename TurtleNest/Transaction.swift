@@ -11,8 +11,12 @@ import SwiftData
 @Model
 final class Transaction {
     var timestamp: Date
+    var amount: Double
+    var title: String
     
-    init(timestamp: Date) {
+    init(timestamp: Date, amount: Double, title: String) {
         self.timestamp = timestamp
+        self.amount = amount
+        self.title = title
     }
 }

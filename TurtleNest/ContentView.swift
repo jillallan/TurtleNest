@@ -46,7 +46,11 @@ struct ContentView: View {
 
     private func addTransaction() {
         withAnimation {
-            let newTransaction = Transaction(timestamp: Date())
+            let newTransaction = Transaction(
+                timestamp: Date.now,
+                amount: 0.0,
+                title: "New transaction"
+            )
             modelContext.insert(newTransaction)
         }
     }
