@@ -12,7 +12,7 @@ import SwiftData
 struct TurtleNestApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Transaction.self
+            Pot.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

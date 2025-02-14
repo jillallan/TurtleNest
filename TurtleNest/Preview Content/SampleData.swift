@@ -12,12 +12,12 @@ import SwiftUI
 struct SampleData: PreviewModifier {
     static func makeSharedContext() async throws -> ModelContainer {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Transaction.self, configurations: config)
-        
+        let container = try ModelContainer(for: Pot.self, configurations: config)
+
         SampleDataGenerator.generateData(context: container.mainContext)
         return container
     }
-    
+
     func body(content: Content, context: ModelContainer) -> some View {
         content.modelContainer(context)
     }

@@ -10,6 +10,17 @@ import SwiftData
 
 struct SampleDataGenerator {
     static func generateData(context: ModelContext) {
-        context.insert(Transaction.groceries)
+        context.insert(Pot.current)
+        context.insert(Pot.savings)
+        
+        let transactions = [
+            Transaction.groceries,
+            Transaction.ipad
+        ]
+        
+        for transaction in transactions {
+            context.insert(transaction)
+            Pot.savings.transactions.append(transaction)
+        }
     }
 }

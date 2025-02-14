@@ -13,7 +13,8 @@ final class Transaction {
     var timestamp: Date
     var amount: Double
     var title: String
-    
+    var pot: Pot?
+
     init(timestamp: Date, amount: Double, title: String) {
         self.timestamp = timestamp
         self.amount = amount
