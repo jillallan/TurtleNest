@@ -64,7 +64,6 @@ struct ContentView: View {
     }
 }
 
-#Preview {
+#Preview(traits: .sampleData) {
     ContentView()
-        .modelContainer(for: Transaction.self, inMemory: true)
 }
