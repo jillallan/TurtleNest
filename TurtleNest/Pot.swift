@@ -12,7 +12,7 @@ import SwiftData
 final class Pot {
     var title: String
     var transactions = [Transaction]()
-    
+
     init(title: String) {
         self.title = title
     }
