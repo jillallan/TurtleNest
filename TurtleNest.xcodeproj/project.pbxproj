@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		787270502D5F758C00519BF4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7872704F2D5F758C00519BF4 /* .gitignore */; };
+		787270522D5F75AD00519BF4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 787270512D5F75AD00519BF4 /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		787270302D5F754100519BF4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +32,8 @@
 		7872701B2D5F754000519BF4 /* TurtleNest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurtleNest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7872702F2D5F754100519BF4 /* TurtleNestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TurtleNestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		787270392D5F754100519BF4 /* TurtleNestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TurtleNestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7872704F2D5F758C00519BF4 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		787270512D5F75AD00519BF4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -88,6 +95,8 @@
 		787270122D5F754000519BF4 = {
 			isa = PBXGroup;
 			children = (
+				7872704F2D5F758C00519BF4 /* .gitignore */,
+				787270512D5F75AD00519BF4 /* README.md */,
 				7872701D2D5F754000519BF4 /* TurtleNest */,
 				787270322D5F754100519BF4 /* TurtleNestTests */,
 				7872703C2D5F754100519BF4 /* TurtleNestUITests */,
@@ -225,6 +234,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				787270502D5F758C00519BF4 /* .gitignore in Resources */,
+				787270522D5F75AD00519BF4 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
