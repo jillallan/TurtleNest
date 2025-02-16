@@ -14,13 +14,16 @@ struct SampleDataGenerator {
         context.insert(Pot.savings)
 
         let transactions = [
-            Transaction.groceries,
-            Transaction.ipad
+            Transaction.startingBalance,
+//            Transaction.salary,
+            Transaction.bills,
+            Transaction.book,
+            Transaction.groceries
         ]
 
         for transaction in transactions {
             context.insert(transaction)
-            Pot.savings.transactions.append(transaction)
+            Pot.current.transactions.append(transaction)
         }
     }
 }
