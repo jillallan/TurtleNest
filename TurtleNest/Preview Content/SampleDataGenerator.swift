@@ -15,10 +15,20 @@ struct SampleDataGenerator {
 
         let transactions = [
             Transaction.startingBalance,
-//            Transaction.salary,
+            Transaction.salary,
             Transaction.bills,
             Transaction.book,
-            Transaction.groceries
+            Transaction.groceries,
+            Transaction.vodafone,
+            Transaction.apple,
+            Transaction.three,
+            Transaction.amazonPrime,
+            Transaction.specsavers,
+            Transaction.apple2,
+            Transaction.hackingWithSwift,
+            Transaction.apple3,
+            Transaction.apple4,
+            Transaction.monzo
         ]
 
         for transaction in transactions {

@@ -13,6 +13,7 @@ struct SummaryView: View {
     @Query private var transactions: [Transaction]
 
     var body: some View {
+        let _ = print("Hello")
         NavigationStack {
             ScrollView {
                 VStack {

@@ -19,11 +19,12 @@ struct TransactionView: View {
                     NavigationLink {
                         Text("Item at \(transaction.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
                     } label: {
-                        Text(transaction.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                        TransactionRow(title: transaction.title, subtitle: "Placeholder", amount: transaction.amount)
                     }
                 }
                 .onDelete(perform: deleteTransactions)
             }
+            .navigationTitle("Transactions")
 #if os(macOS)
             .navigationSplitViewColumnWidth(min: 180, ideal: 200)
 #endif

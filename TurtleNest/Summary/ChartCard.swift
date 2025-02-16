@@ -6,9 +6,15 @@
 //
 
 import Charts
+import OSLog
 import SwiftUI
 
 struct ChartCard: View {
+    let logger = Logger(
+        subsystem: Bundle.main.bundleIdentifier!,
+        category: String(describing: ChartCard.self)
+    )
+
     var title: String
     var text: String
     var icon: String
@@ -16,6 +22,8 @@ struct ChartCard: View {
     @State var runningTotal = [Int: Double]()
 
     var body: some View {
+        let _ = print("Hello")
+//        let _ = print("daily totals: \(runningTotal)")
         VStack {
             VStack(alignment: .leading, spacing: 5) {
                 Label(title, systemImage: icon)
@@ -26,20 +34,12 @@ struct ChartCard: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             Chart(runningTotal.sorted { $0.key < $1.key }, id: \.key) { key, value in
-                        LineMark(
-                            x: .value("Day", key),
-                            y: .value("Value", value)
-                        )
-                    }
-//            Chart {
-//                ForEach(runningTotal) { day in
-//                    LineMark(
-//                        x: .value("Date", day),
-//                        y: .value("Amount", day.va)
-//                    )
-//                }
-//            }
-            .chartXScale(domain: [1, 28])
+                LineMark(
+                    x: .value("Day", key),
+                    y: .value("Value", value)
+                )
+            }
+            .chartXScale(domain: [1, 31])
             .frame(maxWidth: .infinity)
 
         }
@@ -50,23 +50,25 @@ struct ChartCard: View {
         .cornerRadius(8)
         .frame(height: 200)
         .onAppear {
-            runningTotal = calculateRunningTotal(transactions: transactions)
+            runningTotal = calculateRunningBalance(transactions: transactions)
+            print("Running total: \(runningTotal)")
+            logger.info("bye bye")
         }
     }
 
-    func calculateRunningBalance(transactions: [Transaction]) -> [Int: Double]  {
-
+    func calculateRunningBalance(transactions: [Transaction]) -> [Int: Double] {
         // Group and sum transactions by day
         let dailyTotals = transactions.reduce(into: [Int: Double]()) { dict, transaction in
             let day = transaction.day
             dict[day, default: 0.0] += transaction.amount
         }
+        print("daily totals: \(dailyTotals)")
 
         return dailyTotals
     }
-    
+
     func calculateRunningTotal(transactions: [Transaction]) -> [Int: Double] {
-        var dictionary = Dictionary(uniqueKeysWithValues: (1...28).map { ($0, 0.0) })
+        var dictionary = Dictionary(uniqueKeysWithValues: (1...31).map { ($0, 0.0) })
 
         for transaction in transactions {
             if let currentValue = dictionary[transaction.day] {

@@ -6,11 +6,15 @@
 //
 
 import Testing
+@testable import TurtleNest
 
 struct TurtleNestTests {
 
     @Test func example() async throws {
         // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+        let calculator = TransactionCalculator()
+        
+        
     }
 
 }
